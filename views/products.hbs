@@ -1,0 +1,30 @@
+{{>header}}
+
+    <div >
+    {{#each data}}
+        <div>
+            <div style="width: 18rem;">
+                <img src="https://source.unsplash.com/random" alt="Products" style="height: 150px;" >
+                <div class="card-body " >
+                    <p >Brand: {{this.name}}</p>
+                    <p >Price: {{this.price}}</p>
+                    <p >Category: {{this.catagory}}</p>
+                    {{!-- <p>image:{{this.image}}</p> --}}
+                </div>
+               <div class="text-center">
+                    <form action="/productdetails?id={{this.id}}" method="POST">
+                    <input class= "btn"type="submit"value="View">
+                </form>
+                </div>
+            </div>
+        </div>
+    {{/each}}
+</div>
+<nav aria-label="...">
+  <ul class="pagination pagination-sm">
+    {{#each pageCount}}
+    <li class="page-item"><a class="page-link" href="?page={{this}}">{{this}}</a></li>
+    {{/each}}
+  </ul>
+</nav>
+
